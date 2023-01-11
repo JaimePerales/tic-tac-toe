@@ -6,3 +6,6 @@ const gameboard = (() => {
         board
     };
 })();
+
+// Factory to create player objects
+const playerFactory = (name, symbol) => ({ name, symbol });
