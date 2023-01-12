@@ -1,0 +1,49 @@
+:root {
+    /* CSS HEX */
+    --space-cadet: #2b2d42ff;
+    --amaranth-red: #d90429ff;
+    --imperial-red: #ef233cff;
+    --manatee: #8d99aeff;
+    --cultured: #edf2f4ff;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--space-cadet);
+    align-items: center;
+}
+
+.game-title-text {
+    display: flex;
+    justify-content: center;
+    color: var(--cultured);
+    font-size: 4rem;
+}
+
+.gameboard-div {
+    height: 300px;
+    width: 300px;
+}
+
+div[class^='row'] {
+    display: flex;
+    height: 100px;
+}
+
+div[class^='gamecell'] {
+    flex: 1;
+}
+
+.row-1 {
+    border-top: 2px solid var(--imperial-red);
+    border-bottom: 2px solid var(--imperial-red);
+}
+
+div[class^='gamecell-0'] {
+    border-right: 2px solid var(--imperial-red);
+}
+
+div[class^='gamecell-2'] {
+    border-left: 2px solid var(--imperial-red);
+}
