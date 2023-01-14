@@ -2,6 +2,8 @@
     /* CSS HEX */
     --space-cadet: #2b2d42ff;
     --amaranth-red: #d90429ff;
+    --amaranth-red-dark: #a70320ff;
+    --amaranth-red-darker: #750216ff;
     --imperial-red: #ef233cff;
     --manatee: #8d99aeff;
     --cultured: #edf2f4ff;
@@ -51,4 +53,23 @@ div[class^='gamecell-0'] {
 
 div[class^='gamecell-2'] {
     border-left: 2px solid var(--imperial-red);
+}
+
+button {
+    background-color: var(--amaranth-red);
+    color: var(--cultured);
+    border: none;
+    border-radius: 2rem;
+    margin-top: 5rem;
+    font-size: 1rem;
+    width: 100px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: var(--amaranth-red-dark);
+}
+
+button:active {
+    background-color: var(--amaranth-red-darker);
 }
