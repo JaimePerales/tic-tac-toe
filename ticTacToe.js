@@ -1,9 +1,15 @@
+/* eslint-disable no-param-reassign */
 // Creates gameboard using module patern
 const gameboard = (() => {
     const board = [...Array(3)].map(() => Array(3));
 
+    const resetBoard = () => {
+
+        gameboard.board = [...Array(3)].map(() => Array(3));;
+    }
     return {
-        board
+        board,
+        resetBoard
     };
 })();
 
@@ -176,7 +182,7 @@ const displayController = (() => {
             // eslint-disable-next-line no-plusplus
             for (let j = 0; j < 3; j++) {
                 const gameCell = document.createElement('div');
-                gameCell.classList.add(`gamecell-${j}-${i}`);
+                gameCell.classList.add(`gamecell-${j}-${i}`, 'cell');
                 gameCell.addEventListener('click', () => {
                     if (gameCell.textContent === '') {
                         gameCell.textContent = gameLogicController.playerTurn(gameCell.classList);
@@ -191,10 +197,23 @@ const displayController = (() => {
         body.appendChild(gameboardDiv);
     }
 
+    const createResetButton = () => {
+        const resetButton = document.createElement('button');
+        resetButton.textContent = 'Reset';
+        resetButton.addEventListener('click', () => {
+            const cells = document.querySelectorAll('.cell');
+            const cellArray = [...cells];
+            cellArray.forEach((item) => { item.textContent = '' });
+            gameboard.resetBoard();
+        });
+        body.appendChild(resetButton);
+    }
+
     // Runs all setup methods
     const initializeView = () => {
         createGameTitleText();
         createGameBoard();
+        createResetButton();
     }
     return {
         initializeView
